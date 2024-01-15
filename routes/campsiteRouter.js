@@ -142,7 +142,6 @@ campsiteRouter
             return next(err);
           }
           if (req.user._id.equals(comment.author) || req.user.admin) {
-            // Allow the operation to proceed
             comment.text = req.body.text;
             campsite
               .save()
@@ -178,7 +177,6 @@ campsiteRouter
             return next(err);
           }
           if (req.user._id.equals(comment.author) || req.user.admin) {
-            // Allow the operation to proceed
             comment.remove();
             campsite
               .save()
@@ -275,7 +273,6 @@ campsiteRouter
           if (campsite && campsite.comments.id(req.params.commentId)) {
             const comment = campsite.comments.id(req.params.commentId);
 
-            // Allow admins to delete any comment
             if (req.user.admin || req.user._id.equals(comment.author)) {
               comment.remove();
               campsite
