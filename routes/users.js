@@ -6,7 +6,6 @@ const cors = require("./cors");
 
 const router = express.Router();
 
-/* GET users listing. */
 router.get(
   "/",
   cors.corsWithOptions,
